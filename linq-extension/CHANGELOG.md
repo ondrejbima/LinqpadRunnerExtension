@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented here. Follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.2] - 2026-03-24
+
+### Fixed
+
+- Pressing F5 or Ctrl+F5 on a `.linq` file now runs the LINQPad script instead of triggering VS Code's debugger (which previously opened the Extension Marketplace asking for a LinqPad debugger extension)
+
 ## [1.8.1] - 2025-11-10
 
 ### Added
