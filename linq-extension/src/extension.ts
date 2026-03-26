@@ -1165,16 +1165,6 @@ async Task Main()
         linqpadExplorer.refresh();
     });
 
-    // Intercept when .linq files are opened and ensure they're always in Group 1
-    const textEditorListener = vscode.window.onDidChangeActiveTextEditor(async (editor) => {
-        if (editor && editor.document.fileName.endsWith('.linq')) {
-            // If the .linq file is not in ViewColumn.One, move it there
-            if (editor.viewColumn !== vscode.ViewColumn.One) {
-                await vscode.window.showTextDocument(editor.document, vscode.ViewColumn.One, false);
-            }
-        }
-    });
-
     context.subscriptions.push(
         disposable,
         openExamplesDisposable,
@@ -1194,8 +1184,7 @@ async Task Main()
         closeAllOpenFilesCommand,
         docOpenListener,
         docCloseListener,
-        visibleEditorsListener,
-        textEditorListener
+        visibleEditorsListener
     );
 }
 
