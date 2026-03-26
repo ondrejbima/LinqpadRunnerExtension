@@ -2,6 +2,14 @@
 
 All notable changes to this project are documented here. Follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.3] - 2026-03-26
+
+### Fixed
+
+- `.linq` files can now be opened in diff mode (Git diff, Copilot diff) without being hijacked into a standalone editor tab. The auto-redirect introduced in 1.8.1 (which moved every `.linq` file to Editor Group 1) was removed because it also fired for diff editors, immediately replacing the diff view with a regular tab. Opening `.linq` files from the LINQPad Explorer still opens them in Editor Group 1 as before.
+
+> **Note on original intent (1.8.1):** The auto-redirect was added to prevent `.linq` files from opening *over* the Interactive Results Viewer. Because the Results Viewer opens as a webview panel in `ViewColumn.Beside` (Group 2), clicking a file while the viewer had focus would place the new editor in Group 2 as well, obscuring the viewer. The redirect solved this by ensuring scripts always land in Group 1. The side-effect of breaking diff mode outweighs this convenience, so the redirect has been removed. If a `.linq` file opens in Group 2, simply drag its tab to Group 1.
+
 ## [1.8.2] - 2026-03-24
 
 ### Fixed
